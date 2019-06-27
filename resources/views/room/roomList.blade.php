@@ -35,20 +35,19 @@
                         <table class="am-table am-table-striped am-table-hover table-main">
                             <thead>
                             <tr>
-                                <th class="table-title">id</th><th class="table-title">大楼名称</th><th class="table-title">房间信息</th><th class="table-title">操作</th>
+                                <th class="table-title">id</th><th class="table-title">房间号</th><th class="table-title">房间面积</th><th class="table-title">操作</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($data as $d)
                                 <tr>
-                                    <td>{{$d->id}}</td>
-                                    <td>{{$d->building_name}}</td>
-                                    <td><p style="text-decoration:none"><a href="{{url('/roomList/')}}/{{$d->id}}">查看房间</a></p></td>
+                                    <td>{{$d->room_id}}</td>
+                                    <td>{{$d->room_no}}</td>
+                                    <td>{{$d->room_space}}</td>
                                     <td>
                                         <div class="am-btn-toolbar">
                                             <div class="am-btn-group am-btn-group-xs">
                                                 <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-                                                <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick=getRooms({{$d->id}})><span class="am-icon-copy"></span> 查看房间</button>
                                                 <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
                                             </div>
                                         </div>

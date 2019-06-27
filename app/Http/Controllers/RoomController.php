@@ -16,10 +16,31 @@ class RoomController extends Controller
         return view('room/registRoomView');
     }
     /*
+     * 登记房间
+     */
+
+    public function registRoom(Input $input){
+        $params = $input->get();
+        $result =  DB::table('room')->insert([
+            'room_no'=>$params['room_no'],
+            'room_space'=>$params['room_space'],
+            'building_id'=>$params['building_no']
+        ]);
+
+        if($result){
+            $msg = '登记成功';
+        }else{
+            $msg = '登记失败';
+        }
+        return redirect('registRoom')->with('msg',$msg);
+    }
+
+    /*
      * 获取房间列表
      */
     public function roomList($id){
-       $data = DB::table('room')->select('*')->where('building_id','=',$id);
+       $data = DB::table('room')->select('*')->where('building_id','=',$id)->get();
+//       dump($data);
        return view('room/roomList')->with('data',$data);
     }
 }

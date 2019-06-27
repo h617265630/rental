@@ -14,7 +14,7 @@
                 <div class="am-u-sm-12 am-u-md-6 am-u-md-push-6">
                 </div>
                 <div class="am-u-sm-12 am-u-md-6 am-u-md-pull-6">
-                    <form class="am-form am-form-horizontal cmxform" id="commentForm" action="{{url('/registEmployee')}}" method="post">
+                    <form class="am-form am-form-horizontal cmxform" id="commentForm" action="{{url('/registRoom')}}" method="post">
 
                         <div class="am-form-group" id="building">
                             <label for="user-phone" class="am-u-sm-3 am-form-label">楼宇</label>
@@ -69,7 +69,6 @@
                     rules:{
                         room_no:{
                             required:true,
-                            minlength:5,
                         },
                         room_space:{
                             required:true,
