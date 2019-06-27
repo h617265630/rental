@@ -13,8 +13,22 @@
     <link rel="apple-touch-icon-precomposed" href="{{asset('resources/assets/i/app-icon72x72@2x.png')}}">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
     <link rel="stylesheet" href="{{asset('resources/assets/css/amazeui.min.css')}}"/>
-    <link rel="stylesheet" href="{{asset('resources/assets/css/admin.css')}}">
+    <link rel="stylesheet" href="{{asset('resources/assets/css/admin.css')}}"/>
+
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+    <link rel="stylesheet" href="{{asset('resources/assets/bootstrap_datepicker/dist/css/bootstrap-datepicker.css')}}"/>
+    <script src="{{asset('resources/assets/bootstrap_datepicker/dist/js/bootstrap-datepicker.js')}}"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -68,9 +82,9 @@
                 <li class="admin-parent">
                     <a class="am-cf" data-am-collapse="{target: '#collapse-nav-info'}"><span class="am-icon-folder-o"></span> 查看信息 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                     <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav-info">
-                        <li><a href="admin-help.html"><span class="am-icon-institution"></span> 公司信息</a></li>
-                        <li><a href="admin-help.html"><span class="am-icon-male"></span> 雇员信息</a></li>
-                        <li><a href="admin-help.html"><span class="am-icon-building-o"></span> 租赁信息</a></li>
+                        <li><a href="{{url('/companyList')}}"><span class="am-icon-institution"></span> 公司信息</a></li>
+                        <li><a href="{{url('/employeeList')}}"><span class="am-icon-male"></span> 雇员信息</a></li>
+                        <li><a href="{{url('/contractList')}}"><span class="am-icon-building-o"></span> 租赁信息</a></li>
                     </ul>
                 </li>
                 {{--<li><a href="admin-table.html"><span class="am-icon-table"></span> 表格</a></li>--}}
