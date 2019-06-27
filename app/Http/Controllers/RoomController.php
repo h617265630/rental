@@ -43,4 +43,12 @@ class RoomController extends Controller
 //       dump($data);
        return view('room/roomList')->with('data',$data);
     }
+
+    /*
+     * 获取关联的房间信息
+     */
+    public function getRooms($id){
+        $data = DB::select('select room_no from room where building_id = '.$id);
+        return response($data);
+    }
 }

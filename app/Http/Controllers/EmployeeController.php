@@ -22,7 +22,9 @@ class EmployeeController extends Controller
         $result =  DB::table('employee')->insert([
             'id'=>$input->get('employee_id'),
             'name'=>$input->get('employee_name'),
-            'social_insurance_id'=>$input->get('social_insurance_id')
+            'social_insurance_id'=>$input->get('social_insurance_id'),
+            'phone'=>$input->get('phone'),
+            'job'=>$input->get('job')
         ]);
         if($result){
             $msg = '登记成功';

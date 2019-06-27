@@ -93,7 +93,11 @@
                         <div class="am-form-group">
                             <label for="user-phone" class="am-u-sm-3 am-form-label">法人学位</label>
                             <div class="am-u-sm-9">
-                                <input type="text" id="graduated_degree" name="graduated_degree" placeholder="法人学位">
+                                <select  name="graduated_degree" id="graduated_degree" data-am-selected >
+                                    <option value="本科">本科</option>
+                                    <option value="硕士">硕士</option>
+                                    <option value="博士">博士</option>
+                                </select>
                             </div>
                         </div>
                         <div class="am-form-group">
@@ -160,7 +164,7 @@
                             required:true,
                         },
                         corporation_contact:{
-                            required:true,
+                            required:false,
                         },
                         household:{
                             required:true,

@@ -35,7 +35,9 @@
                         <table class="am-table am-table-striped am-table-hover table-main">
                             <thead>
                             <tr>
-                              <th class="table-title">工号</th><th class="table-type">员工身份证号</th><th class="table-author am-hide-sm-only">社保ID</th><th class="table-set">操作</th>
+                              <th class="table-title">工号</th><th class="table-type">员工身份证号</th><th class="table-author am-hide-sm-only">社保ID</th>
+                                <th class="table-author am-hide-sm-only">手机号</th><th class="table-author am-hide-sm-only">职务</th>
+                                <th class="table-set">操作</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -44,6 +46,8 @@
                                 <td>{{$d->id}}</td>
                                 <td>{{$d->name}}</td>
                                 <td>{{$d->social_insurance_id}}</td>
+                                <td>{{$d->phone}}</td>
+                                <td>{{$d->job}}</td>
 
                                 <td>
                                     <div class="am-btn-toolbar">

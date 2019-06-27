@@ -63,17 +63,18 @@
                                 <input type="text" id="contract_end_time" class="datepicker" name="contract_end_time" autocomplete="off" placeholder="合同到期时间">
                             </div>
                         </div>
-                        <div class="am-form-group">
-                            <label for="user-name" class="am-u-sm-3 am-form-label">楼宇</label>
+                        <div class="am-form-group" id="building">
+                            <label for="user-phone" class="am-u-sm-3 am-form-label">楼宇</label>
                             <div class="am-u-sm-9">
-                                <input type="text" id="building_name" name="building_name" placeholder="楼宇">
+                                <select class="building" name="building_name" id="building_name"  onchange="showRoom()" data-am-selected >
+                                </select>
                             </div>
                         </div>
-
-                        <div class="am-form-group">
-                            <label for="user-name" class="am-u-sm-3 am-form-label">房间号</label>
+                        <div class="am-form-group" id="building">
+                            <label for="user-phone" class="am-u-sm-3 am-form-label">房间号</label>
                             <div class="am-u-sm-9">
-                                <input type="text" id="room_no" name="room_no" placeholder="房间号">
+                                <select  name="room_no" class="room" id="room_no"data-am-selected  >
+                                </select>
                             </div>
                         </div>
                         <div class="am-form-group">
@@ -174,6 +175,50 @@
             });
         });
         </script>
+
+        <script>
+            {{--<option v-for="r in rows" value="{{r.id}}">{{r.building_name}}</option>--}}
+            $(document).ready(function(){
+                $.ajax({url:'/site/getBuilding',
+                    type:'get',
+                    dataType:'json',
+                    data: {
+                        building_no :$('building_no').val(),
+                        building_name:$('building_name').val()
+                    }.body,success:function(result){
+                        for(i=0;i<result.length;i++)
+                        {
+                            var id = result[i]['id'];
+                            var name = result[i]['building_name'];
+
+                            $('.building').append('<option value="'+id+'">'+name+'</option>');
+                        }
+                    }});
+            })
+
+        </script>
+
+    <script>
+        $('.building').change(function(){
+            var building_no = $('.building').val();
+
+                $.ajax({url:'/site/getRooms/'+building_no,
+                    type:'get',
+                    dataType:'json',
+                    data: {
+                        room_no :$('room_no').val(),
+                    }.body,success:function(result){
+                        for(i=0;i<result.length;i++)
+                        {
+                            var room_no = result[i]['room_no'];
+
+                            $('.room').append('<option class= ".roomOption" value="'+room_no+'">'+room_no+'</option>');
+                        }
+                    }});
+        })
+
+    </script>
+
         <footer class="admin-content-footer">
             <hr>
             <p class="am-padding-left">© 2019 passion fruit co.</p>

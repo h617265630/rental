@@ -34,6 +34,18 @@
                                 <input type="text" id="social_insurance_id" name="social_insurance_id" placeholder="社保ID" >
                             </div>
                         </div>
+                        <div class="am-form-group">
+                            <label for="user-phone" class="am-u-sm-3 am-form-label">手机号</label>
+                            <div class="am-u-sm-9">
+                                <input type="text" id="phone" name="phone" placeholder="手机号" >
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label for="user-phone" class="am-u-sm-3 am-form-label">职务</label>
+                            <div class="am-u-sm-9">
+                                <input type="text" id="job" name="job" placeholder="职务" >
+                            </div>
+                        </div>
 
                         <div class="am-form-group">
                             <div class="am-u-sm-9 am-u-sm-push-3">
