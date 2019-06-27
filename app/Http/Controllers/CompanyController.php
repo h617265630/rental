@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\Input;
 use DB;
 use App\Model\Company;
 
-class CompanyController extends Controllers
+class CompanyController extends Controller
 {
     /*
      * 登记公司页面
     */
     public function registCompanyView(){
-        return view('registCompanyView');
+        return view('company/registCompanyView');
     }
     /*
      * 登记公司
@@ -50,6 +50,6 @@ class CompanyController extends Controllers
     public function companyList(){
 
         $result = DB::table('company')->select('*')->get();
-        return view('companyList')->with('data',$result);;
+        return view('company/companyList')->with('data',$result);;
     }
 }

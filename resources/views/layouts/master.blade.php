@@ -14,12 +14,13 @@
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
     <link rel="stylesheet" href="{{asset('resources/assets/css/amazeui.min.css')}}"/>
     <link rel="stylesheet" href="{{asset('resources/assets/css/admin.css')}}"/>
-
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
     <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
     <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
     <link rel="stylesheet" href="{{asset('resources/assets/bootstrap_datepicker/dist/css/bootstrap-datepicker.css')}}"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+    <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
     <script src="{{asset('resources/assets/bootstrap_datepicker/dist/js/bootstrap-datepicker.js')}}"></script>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -73,7 +74,9 @@
                     <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
                         <li><a href={{url('/registCompany')}}><span class="am-icon-institution"></span> 登记公司</a></li>
                         <li><a href={{url('/registEmployee')}}><span class="am-icon-male"></span> 登记雇员</a></li>
-                        <li><a href={{url('/signContract')}}><span class="am-icon-building-o"></span> 签署合同</a></li>
+                        <li><a href={{url('/registBuilding')}}><span class="am-icon-building-o"></span> 登记大楼</a></li>
+                        <li><a href={{url('/registRoom')}}><span class="am-icon-lemon-o"></span> 登记房间</a></li>
+                        <li><a href={{url('/signContract')}}><span class="am-icon-file-o"></span> 签署合同</a></li>
                         {{--<li><a href="admin-gallery.html"><span class="am-icon-th"></span> 相册页面<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span></a></li>--}}
                         {{--<li><a href="admin-log.html"><span class="am-icon-calendar"></span> 系统日志</a></li>--}}
                         {{--<li><a href="admin-404.html"><span class="am-icon-bug"></span> 404</a></li>--}}
@@ -84,7 +87,8 @@
                     <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav-info">
                         <li><a href="{{url('/companyList')}}"><span class="am-icon-institution"></span> 公司信息</a></li>
                         <li><a href="{{url('/employeeList')}}"><span class="am-icon-male"></span> 雇员信息</a></li>
-                        <li><a href="{{url('/contractList')}}"><span class="am-icon-building-o"></span> 租赁信息</a></li>
+                        <li><a href="{{url('/buildingList')}}"><span class="am-icon-building-o"></span> 楼宇信息</a></li>
+                        <li><a href="{{url('/contractList')}}"><span class="am-icon-file-o"></span> 合同信息</a></li>
                     </ul>
                 </li>
                 {{--<li><a href="admin-table.html"><span class="am-icon-table"></span> 表格</a></li>--}}

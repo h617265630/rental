@@ -12,17 +12,24 @@
 */
 
 Route::get('/','IndexController@index');
-Route::get('/registCompany','IndexController@registCompanyView');
-Route::post('/registCompany','IndexController@registCompany');
-Route::get('/companyList','IndexController@companyList');
+Route::get('/registCompany','CompanyController@registCompanyView');
+Route::post('/registCompany','CompanyController@registCompany');
+Route::get('/companyList','CompanyController@companyList');
 
-Route::get('/registEmployee','IndexController@registEmployeeView');
-Route::post('/registEmployee','IndexController@registEmployee');
-Route::get('/employeeList','IndexController@employeeList');
+Route::get('/registEmployee','EmployeeController@registEmployeeView');
+Route::post('/registEmployee','EmployeeController@registEmployee');
+Route::get('/employeeList','EmployeeController@employeeList');
 
-Route::get('/signContract','IndexController@signContractView');
-Route::post('/signContract','IndexController@signContract');
-Route::get('/contractList','IndexController@contractList');
+Route::get('/signContract','ContractController@signContractView');
+Route::post('/signContract','ContractController@signContract');
+Route::get('/contractList','ContractController@contractList');
 
+Route::get('/registRoom','RoomController@registRoomView');
+Route::get('/roomList/{id}','RoomController@roomList');
+
+Route::get('/registBuilding','BuildingController@registBuildingView');
+Route::get('/getBuilding','BuildingController@getBuildings');
+Route::post('/registBuilding','BuildingController@registBuilding');
+Route::get('/buildingList','BuildingController@buildingList');
 Route::resource('users','AdminUserController');
 

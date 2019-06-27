@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\Input;
 use DB;
 use App\Model\Company;
 
-class ContractController extends Controllers
+class ContractController extends Controller
 {
     /*
       * 签署合同页面
       */
     public function signContractView(){
-        return view('signContractView');
+        return view('contract/signContractView');
     }
     /*
      * 签署合同
@@ -46,6 +46,6 @@ class ContractController extends Controllers
     public function contractList(){
 //    $t1 = DB::select('select * from contract as t1, room as t2, contract_relationship as t3 where t3.room_id = t2.room_id and t3.contract_no= t1.contract_no');
         $t1 = DB::select('select * from contract');
-        return view('contractList')->with('data',$t1);;
+        return view('contract/contractList')->with('data',$t1);;
     }
 }

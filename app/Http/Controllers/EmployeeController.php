@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\Input;
 use DB;
 use App\Model\Company;
 
-class EmployeeController extends Controllers
+class EmployeeController extends Controller
 {
     /*
      * 登记雇员页面
      */
     public function registEmployeeView(){
-        return view('registEmployeeView');
+        return view('employee/registEmployeeView');
     }
     /*
      * 登记雇员
@@ -36,6 +36,6 @@ class EmployeeController extends Controllers
      */
     public function employeeList(){
         $result = DB::table('employee')->select('*')->get();
-        return view('employeeList')->with('data',$result);
+        return view('employee/employeeList')->with('data',$result);
     }
 }
