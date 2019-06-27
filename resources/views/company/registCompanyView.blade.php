@@ -32,7 +32,12 @@
                         <div class="am-form-group">
                             <label for="user-phone" class="am-u-sm-3 am-form-label">公司分类</label>
                             <div class="am-u-sm-9">
-                                <input type="text" id="category" name="category" placeholder="公司分类" >
+                                {{--<input type="text" id="category" name="category" placeholder="公司分类" >--}}
+                                <select  name="category" id="category" data-am-selected >
+                                    <option value="科技">科技</option>
+                                    <option value="科技">文化</option>
+                                    <option value="科技">商务</option>
+                                </select>
                             </div>
                         </div>
 
