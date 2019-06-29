@@ -52,4 +52,12 @@ class CompanyController extends Controller
         $result = DB::table('company')->select('*')->get();
         return view('company/companyList')->with('data',$result);;
     }
+
+    /*
+     * 获取公司信息
+     */
+    public function getCompany(){
+        $result = DB::select('select * from company');
+        return response($result);
+    }
 }

@@ -16,6 +16,13 @@
                 <div class="am-u-sm-12 am-u-md-6 am-u-md-pull-6">
                     <form class="am-form am-form-horizontal cmxform" id="commentForm" action="{{url('/registEmployee')}}" method="post">
                         <div class="am-form-group">
+                            <label for="user-phone" class="am-u-sm-3 am-form-label">所属公司</label>
+                            <div class="am-u-sm-9">
+                                <select  name="company_id" id="company_id" data-am-selected >
+                                </select>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
                             <label for="user-phone" class="am-u-sm-3 am-form-label">员工</label>
                             <div class="am-u-sm-9">
                                 <input type="text" id="employee_name" name="employee_name" placeholder="员工" >
@@ -85,6 +92,28 @@
                     }
                 });
             });
+        </script>
+
+        <script>
+            {{--<option v-for="r in rows" value="{{r.id}}">{{r.building_name}}</option>--}}
+            $(document).ready(function(){
+                $.ajax({url:'/site/getCompany',
+                    type:'get',
+                    dataType:'json',
+                    data: {
+                        building_no :$('code_id').val(),
+                        building_name :$('building_name').val(),
+                    }.body,success:function(result){
+                        for(i=0;i<result.length;i++)
+                        {
+                            var id = result[i]['code_id'];
+                            var name = result[i]['name'];
+
+                            $('select').append('<option value="'+id+'">'+name+'</option>');
+                        }
+                    }});
+            })
+
         </script>
 
 

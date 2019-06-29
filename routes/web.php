@@ -15,6 +15,7 @@ Route::get('/','IndexController@index');
 Route::get('/registCompany','CompanyController@registCompanyView');
 Route::post('/registCompany','CompanyController@registCompany');
 Route::get('/companyList','CompanyController@companyList');
+Route::get('/getCompany','CompanyController@getCompany');
 
 Route::get('/registEmployee','EmployeeController@registEmployeeView');
 Route::post('/registEmployee','EmployeeController@registEmployee');
