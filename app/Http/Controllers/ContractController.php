@@ -20,19 +20,30 @@ class ContractController extends Controller
      */
     public function signContract(Input $input){
 
-//        dump($input->get());
         $params = $input->get();
+
+
+        // 计算合同到期时间 和结束时间
+
+        // 存储数据
         $result =  DB::table('contract')->insert([
             'contract_no'=>$params['contract_no'],
             'provides'=>$params['provides'],
-            'start_time'=>$params['start_time'],
-            'end_time'=>$params['end_time'],
+            'contract_start_time'=>$params['contract_start_time'],
+            'contract_end_time'=>$params['contract_end_time'],
+            'building_id'=>$params['building_id'],
+            'room_no'=>$params['room_no'],
             'room_space'=>$params['room_space'],
             'rented_space'=>$params['rented_space'],
             'unit_price'=>$params['unit_price'],
             'available'=>1
         ]);
 
+
+        //保存好后 修改 room 的可用状态
+        $room_no = $params['room_no'];
+        DB::table('room')->where('room_no',$room_no)
+            ->update(array('available'=>0));
         if($result){
             $msg = '登记成功';
         }else{
@@ -48,4 +59,21 @@ class ContractController extends Controller
         $t1 = DB::select('select * from contract');
         return view('contract/contractList')->with('data',$t1);;
     }
+
+    /*
+     *计算房间可用面积
+     */
+    public function calcAvailableSpace($building_id){
+
+
+        //这个大楼下 所有房间的总面积
+        $availableSpace = DB::select('select sum(room_space) as a_space from room where building_id = '.$building_id.' and available = 1 ');
+
+//        dump($availableSpace);
+
+        return response($availableSpace);
+//        $availableSpace = $totalSpace - $usedSpace;
+//        return $availableSpace;
+    }
+
 }

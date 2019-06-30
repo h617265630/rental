@@ -21,9 +21,12 @@ Route::get('/registEmployee','EmployeeController@registEmployeeView');
 Route::post('/registEmployee','EmployeeController@registEmployee');
 Route::get('/employeeList','EmployeeController@employeeList');
 
+// contract
 Route::get('/signContract','ContractController@signContractView');
 Route::post('/signContract','ContractController@signContract');
 Route::get('/contractList','ContractController@contractList');
+Route::get('/getRoomSpace/{id}','ContractController@calcAvailableSpace');
+
 
 Route::get('/registRoom','RoomController@registRoomView');
 Route::post('/registRoom','RoomController@registRoom');
