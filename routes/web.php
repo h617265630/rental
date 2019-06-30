@@ -26,7 +26,7 @@ Route::get('/signContract','ContractController@signContractView');
 Route::post('/signContract','ContractController@signContract');
 Route::get('/contractList','ContractController@contractList');
 Route::get('/getRoomSpace/{id}','ContractController@calcAvailableSpace');
-
+Route::get('/test','ContractController@test');
 
 Route::get('/registRoom','RoomController@registRoomView');
 Route::post('/registRoom','RoomController@registRoom');

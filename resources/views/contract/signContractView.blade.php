@@ -102,6 +102,7 @@
                         <div class="am-form-group">
                             <label for="user-name" class="am-u-sm-3 am-form-label">自动计算合同总价</label>
                             <div class="am-u-sm-9">
+                                <input type="hidden" id="total_price" class="total_price_input" value="" name="total_price">
                                 <p class="total_price">输入单价和面积计算总价</p>
                             </div>
                         </div>
@@ -244,7 +245,8 @@
                 var total_price = 0;
                 if(unit_price&&unit_price!=null){
                     var total_price = $('.unit_price').val()*$('.rented_space').val();
-                    $('.total_price').text(total_price +'元')
+                    $('.total_price').text(total_price +'元');
+                    $('.total_price_input').val(total_price);
                 }
             })
             $(".unit_price").change(function(){
@@ -252,7 +254,9 @@
                 var total_price =0;
                 if (rented_space&&rented_space!=null){
                     var total_price = $('.unit_price').val()*$('.rented_space').val();
-                    $('.total_price').text(total_price +' 元')
+                    $('.total_price').text(total_price +' 元');
+                    alert(total_price);
+                    $('.total_price_input').val(total_price);
                 }
             })
         </script>

@@ -36,12 +36,27 @@ class ContractController extends Controller
             'room_space'=>$params['room_space'],
             'rented_space'=>$params['rented_space'],
             'unit_price'=>$params['unit_price'],
-            'available'=>1
+            'available'=>1,
+            'total_price'=>$params['total_price']
         ]);
 
 
-        //保存好后 修改 room 的可用状态
+        // 修改 公司的服务开始和结束时间。
+
+
+
+        $start_time = DB::select('select min(contract_start_time) as start_time from contract where building_id = '.$params['building_id'])[0];
+
+        $end_time = DB::select('select max(contract_end_time) as end_time from contract where building_id='.$params['building_id'])[0];
+
+
         $room_no = $params['room_no'];
+        DB::table('contract')->where('building_id',$params['building_id'])
+            ->where('room_no',$room_no)
+            ->update(array('start_time'=>$start_time->start_time,'end_time'=>$end_time->end_time));
+
+        //保存好后 修改 room 的可用状态
+
         DB::table('room')->where('room_no',$room_no)
             ->update(array('available'=>0));
         if($result){
@@ -74,6 +89,13 @@ class ContractController extends Controller
         return response($availableSpace);
 //        $availableSpace = $totalSpace - $usedSpace;
 //        return $availableSpace;
+    }
+
+    public function test(){
+        $start_time = DB::select('select min(contract_start_time) as start_time from contract where building_id = 1');
+
+        $end_time = DB::select('select max(contract_end_time) as end_time from contract where building_id=1');
+        dump($end_time[0]->end_time);
     }
 
 }

@@ -54,12 +54,12 @@
                                 <td>{{$d->provides}}</td>
                                 <td>{{$d->contract_start_time}}</td>
                                 <td>{{$d->contract_end_time}}</td>
-                                {{--<td>{{$d->building_name}}</td>--}}
-                                {{--<td>{{$d->room_no}}</td>--}}
-                                {{--<td>{{$d->romm_space}}</td>--}}
-                                {{--<td>{{$d->rented_space}}</td>--}}
+                                <td>{{$d->building_id}}</td>
+                                <td>{{$d->room_no}}</td>
+                                <td>{{$d->room_space}}</td>
+                                <td>{{$d->rented_space}}</td>
                                 <td>{{$d->unit_price}}</td>
-                                {{--<td>{{$d->total_price}}</td>--}}
+                                <td>{{$d->total_price}}</td>
                                 <td>
                                     <div class="am-btn-toolbar">
                                         <div class="am-btn-group am-btn-group-xs">
